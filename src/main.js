@@ -46,7 +46,7 @@ const run = (callback) => {
   const tail = new Tail("openvpn.log");
 
   try {
-    exec(`sudo openvpn --config ${configFile} --daemon --log openvpn.log --writepid openvpn.pid`);
+    exec(`openvpn --config ${configFile} --daemon --log openvpn.log --writepid openvpn.pid`);
   } catch (error) {
     core.error(fs.readFileSync("openvpn.log", "utf8"));
     tail.unwatch();
